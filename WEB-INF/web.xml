@@ -14,6 +14,42 @@
     <servlet-name>SearchServlet</servlet-name>
     <url-pattern>/search</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>DeleteServlet</servlet-name>
+    <servlet-class>todo.web.DeleteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteServlet</servlet-name>
+    <url-pattern>/delete</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>DetailServlet</servlet-name>
+    <servlet-class>todo.web.DetailServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DetailServlet</servlet-name>
+    <url-pattern>/detail</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>InputServlet</servlet-name>
+    <servlet-class>todo.web.InputServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InputServlet</servlet-name>
+    <url-pattern>/input</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>RegisterServlet</servlet-name>
+    <servlet-class>todo.web.RegisterServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisterServlet</servlet-name>
+    <url-pattern>/register</url-pattern>
+  </servlet-mapping>
 
   <init-param>
     <param-name>javaEncoding</param-name>

@@ -13,6 +13,10 @@
   <body>
     <jsp:include page="/jsp/nav.jsp" />
     <div class="container">
+        <c:if test="${message != null}">
+          <c:out value="${message}"/>
+          <br/>
+        </c:if>
       <table class="table table-bordered">
         <tr>
           <th>番号</th>
