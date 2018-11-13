@@ -20,6 +20,8 @@ public class DetailServlet extends HttpServlet {
     
     protected void doGet (HttpServletRequest req, HttpServletResponse rsp)
             throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
+
         //リクエストパラメータから選択したタスクIDを取得する
         String paramId = req.getParameter("id");
         

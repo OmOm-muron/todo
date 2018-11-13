@@ -19,6 +19,7 @@ public class DeleteServlet extends HttpServlet {
     
     protected void doPost(HttpServletRequest req, HttpServletResponse rsp) 
             throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
         String paramId = req.getParameter("id");
         
         try (TodoDAO dao = new TodoDAO()) {
@@ -34,7 +35,7 @@ public class DeleteServlet extends HttpServlet {
         setMessage(req,"タスク[ " + paramId + " ]の削除処理が完了しました。");
         
         //画面を返す
-        RequestDispatcher rd = req.getRequestDispatcher("/todo/search");
+        RequestDispatcher rd = req.getRequestDispatcher("/search");
         rd.forward(req,rsp);
     }
     

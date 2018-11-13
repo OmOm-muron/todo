@@ -29,7 +29,7 @@
                         <td>
                             <c:choose>
                                 <c:when test="${dto.id > 0}">
-                                    <c:out values="${dto.id}"/>
+                                    <c:out value="${dto.id}"/>
                                 </c:when>
                                 <c:otherwise>
                                     （新規）

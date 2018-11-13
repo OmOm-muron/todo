@@ -44,10 +44,5 @@
         </c:forEach>
       </table>
     </div>
-    <div class="container">
-      <form id="inout" action="input" method="GET">
-        <input type="submit" class="btn btn-success" value="タスクの新規登録"/>
-      </form>
-    </div>
   </body>
 </html>

@@ -20,6 +20,8 @@ public class RegisterServlet extends HttpServlet {
     
     protected void doPost(HttpServletRequest req, HttpServletResponse rsp)
             throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
+
         //リクエストパラメータを受け取り、DTOに格納する準備をする
         int id = Integer.parseInt(req.getParameter("id"));
         String title = req.getParameter("title");
@@ -54,7 +56,7 @@ public class RegisterServlet extends HttpServlet {
         }
             
         //登録完了→一覧画面を表示
-        RequestDispatcher rd = req.getRequestDispatcher("/todo/search");
+        RequestDispatcher rd = req.getRequestDispatcher("/search");
         rd.forward(req, rsp);
     }
         

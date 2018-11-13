@@ -19,6 +19,8 @@ public class InputServlet extends HttpServlet {
     
     protected void doGet(HttpServletRequest req, HttpServletResponse rsp)
             throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
+
         //voの作成
         Todo dto = new Todo();
         

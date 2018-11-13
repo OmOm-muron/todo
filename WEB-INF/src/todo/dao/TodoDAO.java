@@ -3,6 +3,7 @@ package todo.dao;
 
 import java.sql.*;
 import java.util.*;
+import java.text.*;
 import todo.dto.Todo;
 
 /**
@@ -52,7 +53,7 @@ public class TodoDAO extends DAO {
         Todo dto = new Todo();
         
         String sql = "SELECT td.id, td.title, td.task, td.limitdate, td.lastupdate, td.userid, stts.label, td.status, td.filename "
-                + "FROM todo_list td LEFO JOIN status_list stts ON stts.status = td.status WHERE id = ?";
+                + "FROM todo_list td LEFT JOIN status_list stts ON stts.status = td.status WHERE id = ?";
         
         //PreparedStatementを取得し、実行SQLを渡す
         PreparedStatement statement = getPreparedStatement(sql);
@@ -96,7 +97,7 @@ public class TodoDAO extends DAO {
             PreparedStatement statement = getPreparedStatement(sql);
             statement.setString(1, dto.getTitle());
             statement.setString(2, dto.getTask());
-            statement.setString(3, dto.getInputLimitdate());
+            statement.setTimestamp(3, new Timestamp(new SimpleDateFormat("yyyy-MM-dd").parse(dto.getInputLimitdate()).getTime()));
             statement.setString(4, dto.getUserid());
             
             result = statement.executeUpdate();
@@ -128,7 +129,7 @@ public class TodoDAO extends DAO {
             PreparedStatement statement = getPreparedStatement(sql);
             statement.setString(1, dto.getTitle());
             statement.setString(2, dto.getTask());
-            statement.setString(3, dto.getInputLimitdate());
+            statement.setTimestamp(3, new Timestamp(new SimpleDateFormat("yyyy-MM-dd").parse(dto.getInputLimitdate()).getTime()));
             statement.setString(4, dto.getUserid());
             statement.setInt(5, dto.getStatus());
             statement.setInt(6, dto.getId());
