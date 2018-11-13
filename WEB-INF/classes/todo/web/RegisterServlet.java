@@ -6,6 +6,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
+import todo.util.SimpleMailSender;
 import todo.dto.Todo;
 import todo.dao.TodoDAO;
 
@@ -51,6 +52,18 @@ public class RegisterServlet extends HttpServlet {
             setMessage(req,message);
         } catch (Exception e) {
             throw new ServletException(e);
+        }
+        
+        String toAddr = "toaddr@example.com";
+        String fromAddr = "fromaddr@example.com";
+        String personName = "Mail Test User";
+        String subject = "TODO管理アプリからのお知らせ";
+        //完了時にメールを送信する
+        SimpleMailSender mail = new SimpleMailSender();
+        try {
+            mail.sendMessage(toAddr, fromAddr, personName, subject, message);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
             
         //登録完了→一覧画面を表示
